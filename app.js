@@ -7,6 +7,11 @@
   if(mobileBtn&&mobilePanel){
     mobileBtn.addEventListener('click',()=>{const open=mobilePanel.hidden;mobilePanel.hidden=!open;mobileBtn.setAttribute('aria-expanded',String(open));mobileBtn.setAttribute('aria-label',open?'Close navigation':'Open navigation');mobileBtn.textContent=open?'×':'☰';});
     mobilePanel.addEventListener('click',e=>{if(e.target.closest('a')){mobilePanel.hidden=true;mobileBtn.setAttribute('aria-expanded','false');mobileBtn.textContent='☰';}});
+    document.addEventListener('pointerdown',e=>{
+      if(!mobilePanel.hidden&&!mobilePanel.contains(e.target)&&!mobileBtn.contains(e.target)){
+        mobilePanel.hidden=true;mobileBtn.setAttribute('aria-expanded','false');mobileBtn.setAttribute('aria-label','Open navigation');mobileBtn.textContent='☰';
+      }
+    });
   }
   const drop=$('#services-drop'),dropBtn=$('#services-toggle');
   if(drop&&dropBtn){
@@ -34,12 +39,14 @@
   });
   const serviceGrid=$('#service-grid');
   if(serviceGrid){
-    const filterButtons=$$('[data-service-filter]'), search=$('#service-search'), count=$('#service-count');let current='All';
+    const filterButtons=$$('[data-service-filter]'), search=$('#service-search'), count=$('#service-count'), moreBtn=$('#service-more');let current='All',expanded=false;
     const render=()=>{
       const q=(search?.value||'').trim().toLowerCase();
       const matches=data.services.filter(s=>(current==='All'||s.group===current)&&(!q||(s.name+' '+s.summary+' '+s.group).toLowerCase().includes(q)));
+      // Present a compact overview at first; a search always reveals every matching service.
+      const visible=(expanded||q)?matches:matches.slice(0,6);
       serviceGrid.replaceChildren();
-      for(const s of matches){
+      for(const s of visible){
         const card=document.createElement('article');card.className='service-card';
         const a=document.createElement('a');a.href='service.html?service='+encodeURIComponent(s.slug);a.setAttribute('aria-label','View '+s.name);
         const im=document.createElement('img');im.src=s.images[0].url;im.alt=s.name+' photo';im.loading='lazy';im.decoding='async';
@@ -52,10 +59,16 @@
         const arr=document.createElement('span');arr.className='arr';arr.textContent='↗';foot.append(n,arr);
         body.append(idx,h,p,foot);a.append(im,body);card.append(a);serviceGrid.append(card);
       }
-      if(count)count.textContent=matches.length+' of '+data.services.length+' categories';
+      if(count)count.textContent=(q||expanded||matches.length<=6?matches.length:visible.length)+' of '+matches.length+' matching categories shown';
+      if(moreBtn){
+        moreBtn.hidden=!!q||matches.length<=6;
+        moreBtn.textContent=expanded?'Show fewer services ↑':'View all '+matches.length+' services ↓';
+        moreBtn.setAttribute('aria-expanded',String(expanded));
+      }
       if(!matches.length){const info=document.createElement('p');info.textContent='No matching categories. Try another keyword or choose All services.';serviceGrid.append(info);}
     };
-    filterButtons.forEach(btn=>btn.addEventListener('click',()=>{current=btn.dataset.serviceFilter;filterButtons.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));render();}));
+    moreBtn?.addEventListener('click',()=>{expanded=!expanded;render();});
+    filterButtons.forEach(btn=>btn.addEventListener('click',()=>{current=btn.dataset.serviceFilter;expanded=false;filterButtons.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));render();}));
     search?.addEventListener('input',render);render();
   }
   if(document.body.dataset.page==='service'){
