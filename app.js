@@ -13,6 +13,21 @@
       }
     });
   }
+  // V1.2.3: Let the page scroll normally when a desktop mouse is over the
+  // 3D canvas. OrbitControls otherwise consumes wheel events for zooming,
+  // making scrolling appear stuck. Ctrl + wheel still zooms the 3D model;
+  // drag-to-rotate and all mobile touch gestures are unchanged.
+  const viewerStage=$('#viewer-canvas');
+  if(viewerStage){
+    const fineDesktop=()=>window.matchMedia('(min-width:901px) and (pointer:fine)').matches;
+    viewerStage.addEventListener('wheel',e=>{
+      if(fineDesktop()&&!e.ctrlKey)e.stopPropagation();
+    },{capture:true,passive:true});
+    if(fineDesktop()){
+      const hint=$('.viewer-note');
+      if(hint)hint.innerHTML='MOVE TO EXPLORE · <strong>DRAG TO ROTATE</strong> · CTRL + SCROLL TO ZOOM';
+    }
+  }
   const drop=$('#services-drop'),dropBtn=$('#services-toggle');
   if(drop&&dropBtn){
     dropBtn.addEventListener('click',()=>{const open=!drop.classList.contains('open');drop.classList.toggle('open',open);dropBtn.setAttribute('aria-expanded',String(open));});

@@ -459,3 +459,27 @@ p{font-size:13px;line-height:1.62;margin-bottom:12px}
   .service-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   .gallery-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
 }
+
+
+/* V1.2.3 | Desktop navigation and spotlight follow-up.
+   Keep V1.2.2 body copy, title sizes, other media, mobile and the 3D viewport unchanged. */
+@media (min-width:901px){
+  /* Restore the two Capability Spotlight photographs to the readable V1.1 size. */
+  .staggered img{height:178px}
+  .staggered img:nth-child(2){margin-top:16px}
+  /* Only the desktop navigation/dropdown gets larger labels. */
+  .desktop-nav{gap:clamp(12px,1.6vw,22px)}
+  .desktop-nav>a,.nav-drop>button{font-size:13px}
+  .mega strong{font-size:12px}
+  .mega a{font-size:13px;padding:7px 0}
+  .mega{min-width:660px}
+  /* Desktop Capabilities opens as before on hover/click, without the caret.
+     Mobile Capabilities uses its own summary arrow and remains unchanged. */
+  .nav-drop>button span{display:none}
+}
+@media (min-width:901px) and (max-width:1110px){
+  .brand{min-width:178px}
+  .desktop-nav{gap:9px}
+  .desktop-nav>a,.nav-drop>button{font-size:12px}
+  .desktop-nav .contact-nav{padding:8px 9px}
+}
