@@ -291,3 +291,128 @@ p{font-size:13px;line-height:1.62;margin-bottom:12px}
   .service-card h3{font-size:13px}
   .policy-grid{grid-template-columns:1fr}
 }
+
+
+/* V1.2 | Desktop density pass. Colors, 3D viewer, mobile/tablet design, and all functionality preserved.
+   All changes are restricted to desktop widths; 900px and below retains V1.1 exactly. */
+@media (min-width:901px){
+  /* More information per screen without reducing paragraph copy to tiny text. */
+  .section{padding-top:24px;padding-bottom:24px}
+  .section-narrow{padding-top:18px;padding-bottom:18px}
+  .section-header{gap:13px;margin-bottom:13px}
+  .section-header h2{margin-top:6px}
+  h1{font-size:clamp(37px,3.4vw,49px);line-height:1.09;letter-spacing:-.045em}
+  h2{font-size:clamp(26px,2.35vw,34px);line-height:1.17;letter-spacing:-.036em}
+  h3{font-size:clamp(16px,1.35vw,19px);line-height:1.24}
+  p{font-size:13px;line-height:1.52;margin-bottom:9px}
+  .lead{font-size:14px;line-height:1.55}
+  .eyebrow{font-size:9px;gap:8px}
+  .kicker{font-size:10px}
+  .btn{padding:9px 14px;min-height:38px}
+  .btn-small{padding:8px 12px;min-height:36px}
+  .btn-row{gap:8px}
+  /* Use a smaller desktop navigation ribbon without changing the mobile menu. */
+  .topline{height:21px}
+  .nav-inner{min-height:56px}
+  .brand-mark{height:36px;width:36px}
+  .brand-mark svg{width:24px;height:24px}
+  .brand-type{font-size:14px}
+  .brand-type small{font-size:8px;margin-top:2px}
+  .desktop-nav>a,.nav-drop>button{padding-top:16px;padding-bottom:16px}
+  .desktop-nav .contact-nav{padding:8px 12px}
+  /* Home: preserve the exact 3D viewer and its controls, tighten only surrounding copy. */
+  .hero-layout{padding-top:9px;padding-bottom:11px}
+  .hero-copy{padding-top:12px;padding-bottom:13px}
+  .hero-copy h1{font-size:clamp(39px,3.55vw,51px);margin:11px 0 11px}
+  .hero-copy p{font-size:13px;line-height:1.53;margin-bottom:12px}
+  .hero-proof{gap:12px;margin-top:13px;padding-top:11px}
+  .hero-proof strong{font-size:19px}
+  .hero-proof span{font-size:9px}
+  .hero-visual{padding:8px 0 10px 5px}
+  .strip-item,.strip-item:last-child{padding:9px 11px}
+  .strip-item:not(:first-child){padding-left:11px}
+  .strip-item strong{font-size:15px}
+  .strip-item small{font-size:9px;margin-top:2px}
+  .feature-grid,.icon-grid{gap:10px}
+  .feature-card img{height:125px}
+  .feature-card .feature-body{padding:10px 13px 15px}
+  .feature-card h3{font-size:16px;line-height:1.24;margin-top:4px}
+  .feature-card .feature-arr{right:10px;bottom:9px;font-size:16px}
+  .split{gap:clamp(20px,3vw,39px)}
+  .split-visual>img{min-height:200px;max-height:255px}
+  .staggered{gap:9px}
+  .staggered img{height:135px}
+  .staggered img:nth-child(2){margin-top:11px}
+  .stat-list{gap:8px;margin-top:14px}
+  .stat-box{padding-top:9px}
+  .stat-box .n{font-size:19px}
+  .stat-box .s{font-size:10px}
+  .stat-list+div[style*="margin-top"]{margin-top:13px!important}
+  .staggered+.btn-row[style*="margin-top"]{margin-top:12px!important}
+  .tech-teaser{gap:19px}
+  .video-visual img{aspect-ratio:2/1}
+  .video-play span{width:48px;height:48px;font-size:21px}
+  .quote{padding:11px 15px;font-size:14px}
+  .cta-band{padding:20px 0}
+  .cta-inner{gap:12px}
+  .cta-inner h2{margin-top:6px}
+  /* Inside pages: shorter title region and denser cards/media. */
+  .page-hero{padding:19px 0 23px}
+  .page-hero h1{font-size:clamp(33px,3.1vw,44px);margin:8px 0 8px;line-height:1.12}
+  .page-hero p{max-width:850px;line-height:1.5}
+  .breadcrumb{margin-bottom:9px}
+  .inset-card{padding:13px}
+  .icon-feature{padding:12px}
+  .icon-feature .glyph{height:32px;width:32px;font-size:17px;margin-bottom:8px}
+  .icon-feature h3{font-size:16px;margin-bottom:4px}
+  .icon-feature p{font-size:12px}
+  .image-figure img{max-height:255px}
+  .image-figure figcaption{margin-top:5px;font-size:10px}
+  .large-image{max-height:315px}
+  .filter-row{margin:9px 0 9px;gap:6px}
+  .filter-button{padding:7px 10px}
+  .search-wrap input{padding:8px 11px}
+  #service-count{margin-bottom:9px!important}
+  .service-grid{gap:10px}
+  .service-card img{height:112px}
+  .service-card .body{padding:10px 12px}
+  .service-card h3{font-size:16px;margin:5px 0 4px}
+  .service-card p{font-size:12px;line-height:1.4;margin-bottom:7px}
+  .card-foot{padding-top:6px}
+  .service-more-wrap{margin-top:11px}
+  .service-hero-grid{gap:19px}
+  .service-hero-grid img{max-height:245px}
+  .gallery-grid{gap:8px}
+  .gallery-tile::after{right:5px;bottom:5px;padding:2px 6px;font-size:14px}
+  .project-grid{gap:10px}
+  .project-panel img{height:150px}
+  .project-panel .body{padding:11px 13px}
+  .project-panel h3{font-size:17px;margin-bottom:5px}
+  .process-row{grid-template-columns:34px 1fr;gap:9px;padding:9px 0}
+  .process-row .number{font-size:18px}
+  .process-row h3{font-size:16px;margin:2px 0 3px}
+  .video-card video{max-height:340px}
+  .video-caption{padding:8px 12px}
+  .notice{padding:10px 13px;line-height:1.5}
+  .policy-grid{gap:9px}
+  .policy-block{padding:12px}
+  .policy-block h3{font-size:16px;margin-bottom:4px}
+  .contact-grid{gap:12px}
+  .contact-panel{padding:16px}
+  .contact-panel h2[style]{font-size:25px!important}
+  .contact-info{margin:10px 0;padding-top:9px}
+  .contact-info dd{font-size:13px;line-height:1.4;margin-bottom:8px}
+  .contact-aside{min-height:190px;padding:15px}
+  /* A compact but still legible footer across all pages. */
+  .footer{padding:20px 0 10px}
+  .footer-grid{gap:16px}
+  .footer .brand{margin-bottom:8px}
+  .footer h4{margin-bottom:6px}
+  .footer p{font-size:12px;line-height:1.45}
+  .footer a:not(.brand){font-size:11px;margin-bottom:5px}
+  .footer-bottom{margin-top:13px;padding-top:10px;font-size:10px}
+}
+@media (min-width:1150px){
+  /* The existing galleries keep all photos, but need fewer vertical rows. */
+  .gallery-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+}
