@@ -483,3 +483,31 @@ p{font-size:13px;line-height:1.62;margin-bottom:12px}
   .desktop-nav>a,.nav-drop>button{font-size:12px}
   .desktop-nav .contact-nav{padding:8px 9px}
 }
+
+
+/* V1.2.4 | Desktop copy readability & Capability Spotlight image height.
+   Desktop-only visual changes: larger descriptive text and cyan eyebrow labels,
+   taller spotlight photos. All main headings, 3D viewer, JS and mobile remain unchanged. */
+@media (min-width:901px){
+  /* Improve paragraph readability across Home, Company, Capabilities and inner pages. */
+  p{font-size:15px;line-height:1.64}
+  .lead{font-size:16px;line-height:1.64}
+  .hero-copy p{font-size:15.5px;line-height:1.64}
+  .page-hero p{line-height:1.64}
+  .section-header p{font-size:15px;line-height:1.64}
+  .icon-feature p{font-size:14.5px;line-height:1.62}
+  .service-card p{font-size:13.5px;line-height:1.52}
+  .policy-block p{font-size:14.5px;line-height:1.58}
+  .footer p{font-size:13px;line-height:1.55}
+  .footer a:not(.brand){font-size:12px}
+  .stat-box .s{font-size:11.5px}
+  .strip-item small{font-size:10.5px}
+  .quote{font-size:15px;line-height:1.6}
+  /* Cyan short-line labels: OUR COMPANY, OUR APPROACH, CLIENT REFERENCES, etc. */
+  .eyebrow{font-size:12px;letter-spacing:.14em;gap:10px;line-height:1.42}
+  .eyebrow::before{width:23px;flex:none}
+  .kicker,.overline{font-size:11.5px}
+  /* Back toward the original photo height, while preserving the compact titles. */
+  .staggered img{height:255px}
+  .staggered img:nth-child(2){margin-top:18px}
+}
