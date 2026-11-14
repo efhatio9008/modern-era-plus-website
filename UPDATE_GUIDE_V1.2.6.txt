@@ -1,0 +1,19 @@
+Modern Era Plus V1.2.6 — Update Instructions (中文版)
+
+这次更新：
+1) 首页 Company / Capability. Commitment. Confidence. 两张照片自动左右切换。
+   第一张沿用 contact-us/01.webp；第二张从 Contact 的 contact-us/02.webp 复制，
+   新增 assets/images/home-company/onshore-facility.webp。Contact 原照片不删除。
+2) 格式整理了 9 个 HTML、style.css、app.js、viewer.js、data/catalog.js、
+   data/asset-manifest.json 和 favicon.svg。3D 模型、视频及原始素材不改。
+3) 两张照片自动循环，没有左右箭头。电脑和手机版都适用。
+
+推荐部署：使用 V1.2.6 Update Only ZIP。
+解压后，将 ZIP 内的文件与子文件夹直接复制到 GitHub Desktop 对应的网站仓库根目录，
+替换旧文件；保留文件夹层级。
+在 GitHub Desktop 执行 Commit to main -> Push origin。
+打开网站后 Ctrl + F5 刷新。
+
+注意：与以前只改 style.css 的版本不同，这次所有网站代码文件都经过排版整理，
+因此建议将 Update Only ZIP 的全部内容复制进去。不要把整个 ZIP 文件本身上传。
+参考 CODE_GUIDE_V1.2.6.md 了解各文件用途。
