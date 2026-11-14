@@ -3511,3 +3511,66 @@ p {
     animation: none;
   }
 }
+
+
+/* V1.2.5 | Uniform readable light-colored content copy on DESKTOP only.
+   Every page uses the same 17px descriptive-text size. The established compact
+   page titles, cyan eyebrow labels, navigation, mobile styles, 3D canvas and
+   viewer controls are intentionally unchanged. */
+@media (min-width:901px){
+  :root{--desktop-copy-size:17px}
+
+  /* All normal paragraphs: Home, Company, Capabilities/service details,
+     Projects, ASOE Technology, HSE & Quality, Contact and footer. */
+  .hero-copy p,
+  .page-hero p,
+  .section p,
+  .section-narrow p,
+  .cta-band p,
+  .footer p{
+    font-size:var(--desktop-copy-size);
+    line-height:1.63;
+  }
+
+  /* Explicitly sized copy and reusable 'lead' / card text. */
+  .hero-copy .lead,
+  .page-hero .lead,
+  .section .lead,
+  .section-narrow .lead,
+  .section-header p,
+  .icon-feature p,
+  .policy-block p,
+  .service-card p,
+  .project-panel p,
+  .process-row p,
+  .footer p{
+    font-size:var(--desktop-copy-size);
+    line-height:1.63;
+  }
+
+  /* Light-colored descriptions that aren't <p> tags. */
+  .strip-item small,
+  .hero-proof span,
+  .stat-box .s,
+  .split-visual .frame-caption,
+  .image-figure figcaption,
+  .contact-info dd,
+  .video-caption,
+  .notice,
+  .quote,
+  .gallery-count,
+  .card-foot,
+  .footer a:not(.brand),
+  .footer-bottom,
+  .lightbox .lightbox-meta{
+    font-size:var(--desktop-copy-size);
+    line-height:1.6;
+  }
+
+  /* This figure/count includes an inline 12px style in the source HTML. */
+  #service-count,
+  .section p[style*="font-size"],
+  .section-narrow p[style*="font-size"]{
+    font-size:var(--desktop-copy-size)!important;
+  }
+}
