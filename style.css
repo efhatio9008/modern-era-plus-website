@@ -3741,3 +3741,33 @@ body { background: var(--bg); }
     padding-top: 10px;
   }
 }
+
+/* V1.2.7 | Shared desktop footer: slightly shorter on every page.
+   Mobile footer, typography legibility, navigation and other sections unchanged. */
+@media (min-width: 901px) {
+  .footer {
+    padding-top: 16px;
+    padding-bottom: 8px;
+  }
+  .footer-grid {
+    gap: 12px;
+  }
+  .footer .brand {
+    margin-bottom: 5px;
+  }
+  .footer h4 {
+    margin-bottom: 7px;
+  }
+  .footer p {
+    line-height: 1.48;
+  }
+  .footer a:not(.brand) {
+    margin-bottom: 4px;
+    line-height: 1.45;
+  }
+  .footer-bottom {
+    margin-top: 9px;
+    padding-top: 8px;
+    gap: 12px;
+  }
+}
