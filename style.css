@@ -3535,13 +3535,23 @@ body { background: var(--bg); }
   background: radial-gradient(ellipse at 80% 90%, rgba(41, 143, 158, .32), transparent 50%), #123448;
 }
 
-/* Reliable two-photo crossfade: first image remains as the base layer,
-   while the second image fades above it every 10 seconds. */
+/* Homepage Company slideshow: stable first layer and visible second layer. */
+.split-visual.company-slideshow {
+  display: grid;
+  isolation: isolate;
+}
+.split-visual.company-slideshow > .company-slide {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
 .split-visual.company-slideshow > .company-slide-offshore {
   position: relative;
   z-index: 0;
-  animation: none;
   opacity: 1;
+  animation: none;
 }
 .split-visual.company-slideshow > .company-slide-onshore {
   position: relative;
@@ -3556,10 +3566,4 @@ body { background: var(--bg); }
 @keyframes mepSecondPhoto {
   0%, 43%, 100% { opacity: 0; }
   50%, 93% { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .split-visual.company-slideshow > .company-slide-onshore {
-    animation: none;
-    opacity: 0;
-  }
 }
