@@ -3878,3 +3878,12 @@ body { background: var(--bg); }
   .download-support h2 { font-size: 20px; }
   .download-email { font-size: 12px; }
 }
+
+/* V1.28 | Downloads page: alternating lighter blue sections on desktop and mobile. */
+.download-page { background: #102e43; }
+.download-intro {
+  background: radial-gradient(ellipse at 78% 12%, rgba(78,170,198,.17), transparent 52%), linear-gradient(145deg,#163e56,#103047);
+}
+.download-content { background: #1a4359; }
+.download-card { background: linear-gradient(160deg,#24516a,#193e55); }
+.download-support { background: #12344b; }

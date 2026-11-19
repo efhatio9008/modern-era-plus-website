@@ -10,7 +10,7 @@
         <meta content="Download official Windows software installers from Modern Era Plus Sdn. Bhd." property="og:description"/>
         <meta content="assets/images/contact-us/01.webp" property="og:image"/>
         <link href="assets/images/mep-official-logo.jpg" rel="icon" type="image/jpeg"/>
-        <link href="style.css?v=1.28-downloads" rel="stylesheet"/>
+        <link href="style.css?v=1.28-gmail-colors" rel="stylesheet"/>
         <title>
             Software Downloads | Modern Era Plus Sdn. Bhd.
         </title>
@@ -381,5 +381,20 @@
 
         </footer>
         <script defer="" src="app.js?v=1.1"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                if (!window.matchMedia('(min-width: 901px)').matches) return;
+                document.querySelectorAll('a[href^="mailto:moderneraplus@gmail.com"]').forEach(function (link) {
+                    link.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        var mailto = new URL(link.href);
+                        var subject = mailto.searchParams.get('subject') || '';
+                        var gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=moderneraplus%40gmail.com';
+                        if (subject) gmail += '&su=' + encodeURIComponent(subject);
+                        window.location.href = gmail;
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
