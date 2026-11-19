@@ -3887,3 +3887,36 @@ body { background: var(--bg); }
 .download-content { background: #1a4359; }
 .download-card { background: linear-gradient(160deg,#24516a,#193e55); }
 .download-support { background: #12344b; }
+
+/* V1.28 | Compact Software Downloads layout on desktop and mobile. */
+.download-intro { padding: 44px 0 38px; }
+.download-intro h1 { margin: 10px 0 12px; font-size: clamp(28px, 3.4vw, 43px); }
+.download-tags { margin-top: 18px; gap: 8px; }
+.download-tags span { padding: 6px 11px; }
+.download-content { padding: 36px 0 42px; }
+.download-heading { margin-bottom: 18px; gap: 16px; }
+.download-heading h2 { font-size: clamp(22px, 2.4vw, 28px); }
+.download-grid { gap: 16px; }
+.download-card { padding: 23px; }
+.download-card-top { margin-bottom: 16px; }
+.download-app-icon { width: 48px; height: 48px; }
+.download-card h3 { font-size: 21px; }
+.download-card p { min-height: 0; }
+.download-meta { padding: 13px 0; margin-top: 12px; }
+.download-support { margin-top: 20px; padding: 20px 24px; }
+.download-support h2 { font-size: 20px; }
+.download-note { margin-top: 14px; }
+@media (max-width: 900px) {
+  .download-intro { padding: 38px 0 34px; }
+  .download-content { padding: 30px 0 36px; }
+}
+@media (max-width: 600px) {
+  .download-intro { padding: 30px 0; }
+  .download-intro h1 { font-size: 29px; }
+  .download-tags { margin-top: 14px; }
+  .download-content { padding: 26px 0 32px; }
+  .download-card { padding: 18px; }
+  .download-card h3 { font-size: 20px; }
+  .download-support { padding: 18px; }
+  .download-support h2 { font-size: 19px; }
+}
