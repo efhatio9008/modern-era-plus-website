@@ -4897,3 +4897,88 @@ main .service-hero-grid #service-description {
     padding:2px 5px
   }
 }
+
+
+/* V1.28 | Third refinement: compact service catalogue, full container photo, taller contact photo. */
+/* The 17 All Capabilities cards share one design. Keep the desktop three-column
+   order and let thumbnails shrink with their image frames without cropping. */
+body[data-page="services"] #service-grid {
+  gap:clamp(9px,1.15vw,15px)
+}
+body[data-page="services"] #service-grid .service-card img {
+  width:calc(100% - 20px);
+  height:auto;
+  aspect-ratio:2.1/1;
+  object-fit:contain;
+  margin:10px 10px 0;
+  background:var(--mist)
+}
+body[data-page="services"] #service-grid .service-card .body {
+  padding:12px 14px
+}
+body[data-page="services"] #service-grid .service-card h3 {
+  font-size:clamp(15px,1.3vw,17px);
+  line-height:1.28;
+  margin:6px 0
+}
+body[data-page="services"] #service-grid .service-card p {
+  font-size:15px;
+  line-height:1.5;
+  margin-bottom:10px
+}
+body[data-page="services"] #service-grid .service-card .card-foot {
+  padding-top:8px
+}
+
+@media (min-width:901px) {
+  /* Preserve exactly three capability cards per row on desktop. */
+  body[data-page="services"] #service-grid {
+    grid-template-columns:repeat(3,minmax(0,1fr))
+  }
+
+  /* Home: the blue steel-container photograph should be fully visible,
+     slightly smaller and never cropped by its frame. */
+  body[data-page="home"] .staggered img:first-child {
+    width:min(92%,32rem);
+    height:clamp(150px,17vw,245px);
+    object-fit:contain;
+    object-position:center;
+    background:var(--mist);
+    justify-self:center
+  }
+
+  /* Contact: give the offshore-platform panel a little more vertical presence.
+     The adjacent office card continues to align in the same CSS grid row. */
+  body[data-page="contact"] .contact-grid > .contact-aside {
+    min-height:clamp(500px,43vw,570px)
+  }
+}
+
+@media (max-width:900px) {
+  body[data-page="services"] #service-grid .service-card .body {
+    padding:11px 12px
+  }
+  body[data-page="services"] #service-grid .service-card p {
+    font-size:15px;
+    line-height:1.48
+  }
+}
+
+@media (max-width:600px) {
+  /* Keep single-column phone layout, but shorten the 17 service cards. */
+  body[data-page="services"] #service-grid .service-card img {
+    width:calc(100% - 16px);
+    margin:8px 8px 0;
+    aspect-ratio:2.55/1
+  }
+  body[data-page="services"] #service-grid .service-card .body {
+    padding:10px 12px
+  }
+  body[data-page="services"] #service-grid .service-card h3 {
+    font-size:16px;
+    margin:5px 0
+  }
+  body[data-page="services"] #service-grid .service-card p {
+    margin-bottom:8px
+  }
+}
