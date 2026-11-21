@@ -4788,3 +4788,61 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
     opacity:0
   }
 }
+/* V1.28 | Contact image alignment and desktop copy legibility.
+   Keep existing layouts and interactions unchanged. */
+
+/* On desktop, the photograph should reach the full height of the office card.
+   The existing photograph width and background-cover crop are preserved. */
+@media (min-width:901px) {
+  .contact-grid {
+    align-items:stretch
+  }
+  .contact-grid > .contact-aside {
+    align-self:stretch;
+    height:auto;
+    aspect-ratio:auto
+  }
+}
+
+/* At tablet and phone widths, match the office card's full column width.
+   The photograph keeps a responsive proportion rather than stretching. */
+@media (max-width:900px) {
+  .contact-grid > .contact-aside {
+    align-self:auto;
+    justify-self:stretch;
+    width:100%;
+    max-width:none;
+    aspect-ratio:16/9
+  }
+}
+
+/* Increase only the regular descriptive copy on desktop; mobile text is
+   intentionally unchanged, and headings remain visually larger. */
+@media (min-width:901px) {
+  .hero-copy p,
+  .page-hero p,
+  main .section p,
+  main .section-narrow p,
+  .cta-band p,
+  .download-intro p,
+  .download-heading p,
+  .download-card p,
+  .download-support p,
+  .contact-info dd {
+    font-size:17px;
+    line-height:1.63
+  }
+  main .section p[style*="font-size"] {
+    font-size:16px!important
+  }
+  .footer p {
+    font-size:16px;
+    line-height:1.6
+  }
+}
+
+/* Make the Windows installer notice legible on desktop and mobile. */
+.download-note {
+  font-size:16px;
+  line-height:1.6
+}
