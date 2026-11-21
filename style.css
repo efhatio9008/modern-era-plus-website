@@ -5009,3 +5009,17 @@ body[data-page="services"] #service-grid .service-card .card-foot {
     display:inline
   }
 }
+
+
+/* V1.28 | Justified explanatory paragraphs (desktop and mobile). */
+/* Longer descriptive paragraphs align on both sides; their final lines
+   finish naturally. A single-line sentence is not stretched. Keep sizes,
+   line heights, headings, navigation, captions and download notes unchanged. */
+main .section p:not(.download-note),
+main .section-narrow p,
+main .page-hero p,
+main .hero-copy p {
+  text-align:justify;
+  text-align-last:start;
+  hyphens:auto
+}
