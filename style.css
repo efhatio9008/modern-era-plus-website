@@ -3931,6 +3931,8 @@ body { background: var(--bg); }
   --ink:#112e42;
   --teal:#096b70;
   --radius:12px;
+  --photo-width:94%;
+  --card-media-inset:clamp(10px,1.2vw,16px);
   --card-shadow:0 8px 24px rgba(12,41,61,.07);
   --section-space:clamp(34px,4.4vw,64px)
 }
@@ -3983,22 +3985,38 @@ h1,h2,h3 {
   font-weight:700
 }
 h2,.section-header h2,.cta-inner h2,.download-heading h2 {
-  font-size:clamp(25px,2.65vw,38px);
+  font-size:clamp(23px,2.4vw,35px);
   line-height:1.12;
   letter-spacing:-.038em
 }
-h3,.section h3,.section-narrow h3,.download-card h3 {
-  font-size:clamp(18px,1.65vw,23px);
+h3,.section h3,.section-narrow h3,.download-card h3,.download-support h2 {
+  font-size:clamp(18px,1.45vw,21px);
   line-height:1.24;
   letter-spacing:-.025em
 }
+.section h3,.section-narrow h3,.download-card h3,.download-support h2 {
+  color:var(--navy)
+}
+.section h3:has(+p),.section-narrow h3:has(+p),.download-card h3,.download-support h2 {
+  margin-bottom:8px
+}
+.section .contact-aside h3 {
+  color:var(--text)
+}
 p,.section p,.section-narrow p,.cta-band p,.download-card p {
   font-size:16px;
-  line-height:1.65
-}
-.hero-copy .lead,.page-hero .lead,.section .lead,.download-intro p {
-  font-size:clamp(17px,1.48vw,20px);
   line-height:1.6
+}
+.hero-copy .lead,.page-hero .lead,.download-intro p {
+  font-size:clamp(16px,1.3vw,18px);
+  line-height:1.6
+}
+.section .lead {
+  font-size:16px;
+  line-height:1.6
+}
+main .section p[style*="font-size"] {
+  font-size:15px!important
 }
 .eyebrow,.download-kicker {
   color:var(--cyan);
@@ -4203,10 +4221,10 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
   padding-block:clamp(24px,3.6vw,52px)
 }
 .page-hero h1,.download-intro h1 {
-  max-width:26ch;
+  max-width:28ch;
   margin:8px 0 10px;
-  font-size:clamp(30px,3.7vw,52px);
-  line-height:1.07;
+  font-size:clamp(28px,3.4vw,48px);
+  line-height:1.08;
   letter-spacing:-.045em
 }
 .page-hero p,.download-intro p {
@@ -4240,7 +4258,7 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
   padding:0
 }
 .hero-copy h1 {
-  font-size:clamp(38px,4.1vw,60px);
+  font-size:clamp(35px,3.8vw,55px);
   line-height:1;
   letter-spacing:-.05em;
   margin:14px 0
@@ -4317,8 +4335,12 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
 .split>*,.tech-teaser>*,.service-hero-grid>* {
   min-width:0
 }
-.split-visual>img,.image-figure img,.large-image,.service-hero-grid img,.video-visual,.staggered img {
+.split-visual>img,.image-figure img,.large-image,.service-hero-grid img,.video-visual,.video-card,.client-board,.staggered img {
   border-radius:var(--radius)
+}
+.split-visual,.staggered,.video-visual,.gallery-grid {
+  width:var(--photo-width);
+  margin-inline:auto
 }
 .split-visual {
   --photo-ratio:4/3
@@ -4374,7 +4396,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   gap:clamp(12px,2vw,24px)
 }
 .staggered img,.staggered img:nth-child(2) {
-  height:clamp(125px,21vw,300px);
+  height:clamp(112px,18.75vw,270px);
   margin:0;
   object-fit:cover
 }
@@ -4386,12 +4408,38 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   color:#fff
 }
 .image-figure {
-  margin:0
+  width:min(var(--photo-width),34rem);
+  margin:0 auto
 }
 .image-figure img,.large-image,.service-hero-grid img {
-  max-height:460px;
+  height:auto;
+  max-height:clamp(230px,32vw,400px);
   object-fit:contain;
   background:var(--mist)
+}
+.service-hero-grid img,.large-image {
+  width:auto;
+  max-width:var(--photo-width);
+  margin-inline:auto
+}
+.client-board,.video-card {
+  margin-inline:auto
+}
+.client-board {
+  width:min(var(--photo-width),48rem);
+  padding:clamp(10px,1.15vw,16px)
+}
+.client-board img {
+  width:auto;
+  height:auto;
+  max-height:clamp(90px,10vw,136px);
+  margin-inline:auto
+}
+.video-card {
+  width:min(var(--photo-width),35rem)
+}
+.video-card video {
+  max-height:none
 }
 
 /* Cards, catalogue, and utilities */
@@ -4414,9 +4462,12 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   transform:none
 }
 .feature-card img,.service-card img,.project-panel img {
+  width:calc(100% - var(--card-media-inset) - var(--card-media-inset));
   height:auto;
   min-height:0;
   max-height:none;
+  margin:var(--card-media-inset) var(--card-media-inset) 0;
+  border-radius:calc(var(--radius) - 4px);
   aspect-ratio:16/9;
   object-fit:cover;
   background:var(--mist)
@@ -4475,8 +4526,9 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
 .gallery-tile img {
   object-fit:cover
 }
-.gallery-tile.contain img {
-  object-fit:contain
+.gallery-tile.contain img,.gallery-tile[data-gallery-context^="asoe-trenchless-pipe-solution"] img {
+  object-fit:contain;
+  padding:clamp(4px,.55vw,8px)
 }
 .gallery-tile::after {
   content:'\2197'
@@ -4514,7 +4566,12 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   color:inherit
 }
 .contact-aside {
-  min-height:280px
+  align-self:center;
+  justify-self:center;
+  width:min(var(--photo-width),26rem);
+  min-height:0;
+  aspect-ratio:3/2;
+  padding:clamp(12px,1.6vw,20px)
 }
 .contact-info dd {
   font-size:16px;
@@ -4527,14 +4584,19 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   color:var(--ink);
   background:var(--paper)
 }
-.download-heading h2,.download-support h2,.download-card h3 {
+.download-heading h2 {
   color:inherit
+}
+.download-app-icon {
+  width:42px;
+  height:42px
 }
 .download-heading p,.download-card p,.download-support p,.download-meta,.download-note {
   color:var(--muted)
 }
 .download-heading p,.download-support p {
-  font-size:16px
+  font-size:16px;
+  line-height:1.6
 }
 .download-grid {
   gap:clamp(12px,1.5vw,20px)
@@ -4639,7 +4701,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
     max-height:calc(100dvh - 82px)
   }
   .hero-copy h1 {
-    font-size:clamp(34px,8.3vw,46px)
+    font-size:clamp(32px,6vw,35px)
   }
   .hero-copy .btn-row>.btn {
     flex:1 1 180px
@@ -4666,7 +4728,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
     align-items:flex-start
   }
   .contact-aside {
-    min-height:220px
+    width:min(var(--photo-width),19.5rem)
   }
   .viewer-shell {
     min-height:460px
