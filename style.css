@@ -4982,3 +4982,30 @@ body[data-page="services"] #service-grid .service-card .card-foot {
     margin-bottom:8px
   }
 }
+
+/* V1.28 | Final Contact width and mobile Downloads note alignment. */
+/* Desktop: make the offshore platform photo wider, without increasing height
+   or changing the Miri Office column and mobile layout. */
+@media (min-width:901px) {
+  body[data-page="contact"] .contact-grid > .contact-aside {
+    width:min(100%,30rem)
+  }
+}
+
+/* Keep the complete installer notice on desktop; use the shorter equivalent
+   on narrow screens so it can fit about two lines without tiny text. */
+.download-note-mobile {
+  display:none
+}
+@media (max-width:600px) {
+  body[data-page="downloads"] .download-note {
+    font-size:12.5px;
+    line-height:1.45
+  }
+  .download-note-desktop {
+    display:none
+  }
+  .download-note-mobile {
+    display:inline
+  }
+}
