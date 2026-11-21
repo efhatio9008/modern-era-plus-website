@@ -3932,7 +3932,7 @@ body { background: var(--bg); }
   --teal:#096b70;
   --radius:12px;
   --card-shadow:0 8px 24px rgba(12,41,61,.07);
-  --section-space:clamp(48px,6.2vw,90px)
+  --section-space:clamp(34px,4.4vw,64px)
 }
 html {
   scroll-padding-top:116px
@@ -3970,7 +3970,7 @@ main {
   padding-block:var(--section-space)
 }
 .section-narrow {
-  padding-block:clamp(26px,4vw,54px)
+  padding-block:clamp(18px,2.8vw,38px)
 }
 .section-alt,.strip,.download-content {
   background:var(--mist)
@@ -3983,12 +3983,12 @@ h1,h2,h3 {
   font-weight:700
 }
 h2,.section-header h2,.cta-inner h2,.download-heading h2 {
-  font-size:clamp(28px,3.3vw,47px);
-  line-height:1.13;
+  font-size:clamp(25px,2.65vw,38px);
+  line-height:1.12;
   letter-spacing:-.038em
 }
 h3,.section h3,.section-narrow h3,.download-card h3 {
-  font-size:clamp(19px,1.85vw,25px);
+  font-size:clamp(18px,1.65vw,23px);
   line-height:1.24;
   letter-spacing:-.025em
 }
@@ -4011,11 +4011,11 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
   height:2px
 }
 .section-header {
-  gap:14px 30px;
-  margin-bottom:clamp(20px,3vw,36px)
+  gap:10px 24px;
+  margin-bottom:clamp(16px,2.2vw,28px)
 }
 .section-header h2 {
-  margin-top:10px
+  margin-top:8px
 }
 .text-link,.btn {
   min-height:44px;
@@ -4150,6 +4150,11 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
   display:inline-block;
   margin-left:2px
 }
+@media(min-width:901px) {
+  .desktop-nav #services-toggle>span {
+    visibility:hidden
+  }
+}
 .nav-drop:hover .mega,.nav-drop:focus-within .mega {
   display:none
 }
@@ -4195,13 +4200,13 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
 }
 .page-hero,.download-intro {
   position:relative;
-  padding-block:clamp(32px,5.5vw,76px)
+  padding-block:clamp(24px,3.6vw,52px)
 }
 .page-hero h1,.download-intro h1 {
-  max-width:21ch;
-  margin:12px 0 14px;
-  font-size:clamp(34px,4.8vw,66px);
-  line-height:1.06;
+  max-width:26ch;
+  margin:8px 0 10px;
+  font-size:clamp(30px,3.7vw,52px);
+  line-height:1.07;
   letter-spacing:-.045em
 }
 .page-hero p,.download-intro p {
@@ -4209,7 +4214,7 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
   margin-bottom:0
 }
 .breadcrumb {
-  margin-bottom:clamp(16px,2.5vw,30px);
+  margin-bottom:clamp(12px,1.65vw,22px);
   font-size:13px;
   letter-spacing:0;
   color:#c0d3df
@@ -4218,7 +4223,7 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
   color:#adccd8
 }
 .cta-band {
-  padding-block:clamp(34px,5vw,70px)
+  padding-block:clamp(26px,3.45vw,50px)
 }
 
 /* Home and industrial photography */
@@ -4228,29 +4233,29 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
 .hero-layout {
   min-height:0;
   grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
-  gap:clamp(22px,4vw,64px);
-  padding-block:clamp(28px,4.5vw,62px)
+  gap:clamp(20px,3.2vw,46px);
+  padding-block:clamp(20px,3vw,44px)
 }
 .hero-copy,.hero-visual {
   padding:0
 }
 .hero-copy h1 {
-  font-size:clamp(44px,5.15vw,75px);
-  line-height:.99;
+  font-size:clamp(38px,4.1vw,60px);
+  line-height:1;
   letter-spacing:-.05em;
-  margin:20px 0
+  margin:14px 0
 }
 .hero-copy h1 .fine {
   color:inherit
 }
 .hero-copy p {
-  margin-bottom:22px
+  margin-bottom:16px
 }
 .hero-proof {
   display:flex;
   gap:12px;
-  margin-top:24px;
-  padding-top:16px
+  margin-top:18px;
+  padding-top:12px
 }
 .hero-proof strong {
   font-size:clamp(19px,2vw,25px)
@@ -4263,6 +4268,7 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
   text-transform:none
 }
 .viewer-shell {
+  min-height:clamp(460px,35vw,500px);
   border-radius:16px;
   border-color:#3c6073;
   box-shadow:0 18px 48px rgba(1,13,23,.35)
@@ -4275,11 +4281,23 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
 .viewer-shell:has(.viewer-overlay[hidden]) .viewer-grid {
   opacity:.2
 }
+.viewer-overlay {
+  inset-block-end:150px;
+  gap:8px
+}
+.viewer-round {
+  width:50px;
+  height:50px;
+  flex:none
+}
+.viewer-note {
+  bottom:138px
+}
 .view-btn,.view-tool {
   min-height:38px
 }
 .strip-item,.strip-item:last-child,.strip-item:not(:first-child) {
-  padding:17px clamp(10px,2vw,24px)
+  padding:13px clamp(10px,2vw,24px)
 }
 .strip-item:first-child {
   padding-inline-start:0
@@ -4294,7 +4312,7 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
   text-transform:none
 }
 .split,.tech-teaser,.service-hero-grid {
-  gap:clamp(24px,4.75vw,68px)
+  gap:clamp(18px,3.3vw,48px)
 }
 .split>*,.tech-teaser>*,.service-hero-grid>* {
   min-width:0
@@ -4302,13 +4320,16 @@ p,.section p,.section-narrow p,.cta-band p,.download-card p {
 .split-visual>img,.image-figure img,.large-image,.service-hero-grid img,.video-visual,.staggered img {
   border-radius:var(--radius)
 }
+.split-visual {
+  --photo-ratio:4/3
+}
 .split-visual>img,.split-visual.company-slideshow>.company-slide {
   min-height:0;
   max-height:none;
-  aspect-ratio:5/4
+  aspect-ratio:var(--photo-ratio)
 }
 .split-visual.company-slideshow {
-  aspect-ratio:5/4
+  aspect-ratio:var(--photo-ratio)
 }
 .split-visual .frame-caption {
   left:12px;
@@ -4341,10 +4362,10 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
 }
 .stat-list {
   gap:12px;
-  margin-top:24px
+  margin-top:18px
 }
 .stat-box {
-  padding-top:12px
+  padding-top:10px
 }
 .stat-box .n {
   font-size:clamp(16px,2vw,24px)
@@ -4353,7 +4374,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   gap:clamp(12px,2vw,24px)
 }
 .staggered img,.staggered img:nth-child(2) {
-  height:clamp(130px,24vw,340px);
+  height:clamp(125px,21vw,300px);
   margin:0;
   object-fit:cover
 }
@@ -4375,7 +4396,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
 
 /* Cards, catalogue, and utilities */
 .feature-grid,.service-grid,.project-grid,.gallery-grid,.icon-grid,.policy-grid {
-  gap:clamp(12px,1.8vw,24px)
+  gap:clamp(12px,1.45vw,20px)
 }
 .feature-card,.service-card,.project-panel,.icon-feature,.inset-card,.policy-block,.contact-panel,.download-card,.download-support {
   border:1px solid var(--line);
@@ -4396,12 +4417,12 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   height:auto;
   min-height:0;
   max-height:none;
-  aspect-ratio:16/10;
+  aspect-ratio:16/9;
   object-fit:cover;
   background:var(--mist)
 }
 .feature-card .feature-body,.service-card .body,.project-panel .body,.icon-feature,.inset-card,.policy-block,.contact-panel,.download-card,.download-support {
-  padding:clamp(16px,2.2vw,30px)
+  padding:clamp(14px,1.65vw,24px)
 }
 .feature-card .feature-body {
   padding-right:42px
@@ -4461,7 +4482,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   content:'\2197'
 }
 .filter-row {
-  margin:16px 0 20px
+  margin:12px 0 16px
 }
 .filter-button,.search-wrap input#service-search {
   min-height:44px;
@@ -4493,7 +4514,11 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   color:inherit
 }
 .contact-aside {
-  min-height:310px
+  min-height:280px
+}
+.contact-info dd {
+  font-size:16px;
+  line-height:1.6
 }
 .contact-info dd,.footer-grid,.footer-bottom {
   overflow-wrap:anywhere
@@ -4512,7 +4537,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   font-size:16px
 }
 .download-grid {
-  gap:clamp(14px,2vw,24px)
+  gap:clamp(12px,1.5vw,20px)
 }
 .download-meta {
   padding-top:16px;
@@ -4536,11 +4561,11 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   color:var(--teal)!important
 }
 .footer {
-  padding:clamp(34px,5vw,66px) 0 16px;
+  padding:clamp(28px,3.5vw,50px) 0 16px;
   background:var(--navy-deep)
 }
 .footer-grid {
-  gap:24px clamp(20px,3vw,46px)
+  gap:18px clamp(18px,2.5vw,36px)
 }
 .footer .brand {
   margin-bottom:12px
@@ -4564,8 +4589,8 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   text-decoration:underline
 }
 .footer-bottom {
-  margin-top:24px;
-  padding-top:14px;
+  margin-top:18px;
+  padding-top:12px;
   font-size:13px
 }
 .to-top {
@@ -4579,13 +4604,16 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
     background:var(--navy-deep)
   }
   .hero-layout {
-    gap:24px
+    gap:20px
   }
   .hero-copy h1 br {
     display:none
   }
   .hero-copy h1 {
     max-width:15ch
+  }
+  .split-visual {
+    --photo-ratio:16/10
   }
   .feature-grid,.service-grid {
     grid-template-columns:repeat(2,minmax(0,1fr))
@@ -4611,7 +4639,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
     max-height:calc(100dvh - 82px)
   }
   .hero-copy h1 {
-    font-size:clamp(42px,10vw,56px)
+    font-size:clamp(34px,8.3vw,46px)
   }
   .hero-copy .btn-row>.btn {
     flex:1 1 180px
@@ -4620,7 +4648,7 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
     display:flex
   }
   .strip-item,.strip-item:last-child,.strip-item:not(:first-child) {
-    padding:13px 10px
+    padding:11px 10px
   }
   .feature-grid,.service-grid,.project-grid,.icon-grid,.policy-grid {
     grid-template-columns:minmax(0,1fr)
@@ -4638,7 +4666,21 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
     align-items:flex-start
   }
   .contact-aside {
-    min-height:250px
+    min-height:220px
+  }
+  .viewer-shell {
+    min-height:460px
+  }
+  .viewer-overlay {
+    inset-block-end:164px;
+    gap:7px
+  }
+  .viewer-round {
+    width:44px;
+    height:44px
+  }
+  .viewer-note {
+    bottom:135px
   }
   .view-btn,.view-tool {
     min-width:0;
