@@ -10,7 +10,7 @@
         <meta content="Download official Windows software installers from Modern Era Plus Sdn. Bhd." property="og:description"/>
         <meta content="assets/images/contact-us/01.webp" property="og:image"/>
         <link href="assets/images/mep-official-logo.jpg" rel="icon" type="image/jpeg"/>
-        <link href="style.css?v=1.28-download-compact" rel="stylesheet"/>
+        <link href="style.css?v=1.28-ui" rel="stylesheet"/>
         <title>
             Software Downloads | Modern Era Plus Sdn. Bhd.
         </title>
@@ -22,6 +22,8 @@
     </head>
 
     <body data-page="downloads">
+        <a class="skip-link" href="#main">Skip to main content</a>
+
         <header class="site-header">
             <div class="topline">
                 <div class="container">
@@ -57,7 +59,7 @@
                         Company
                     </a>
                     <div class="nav-drop" id="services-drop">
-                        <button aria-expanded="false" aria-haspopup="true" class="" id="services-toggle" type="button">
+                        <button aria-controls="services-mega" aria-expanded="false" class="" id="services-toggle" type="button">
                             Capabilities
                             <span>
                                 ⌄
@@ -144,7 +146,7 @@
                     <a class="" href="hse.html">
                         HSE &amp; Quality
                     </a>
-                    <a class="active" href="download.html">
+                    <a aria-current="page" class="active" href="download.html">
                         Downloads
                     </a>
                     <a class="contact-nav" href="contact.html">
@@ -237,7 +239,7 @@
                 <a href="hse.html">
                     HSE &amp; Quality
                 </a>
-                                <a href="download.html">
+                                <a aria-current="page" href="download.html">
                     Downloads
                 </a>
                 <a href="contact.html">
@@ -248,7 +250,7 @@
 
         </header>
 
-        <main id="main" class="download-page">
+        <main id="main" tabindex="-1" class="download-page">
             <section class="download-intro">
                 <div class="container">
                     <div class="download-kicker">MODERN ERA PLUS · SOFTWARE LIBRARY</div>
@@ -366,13 +368,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <span>
-                        ©
-                        <span id="year">
-                            2026
-                        </span>
-                        Modern Era Plus Sdn. Bhd. All Rights Reserved.
-                    </span>
+                    <span>© 2026 Modern Era Plus, SanJia. All Rights Reserved.</span>
                     <button aria-label="Back to top" class="to-top" id="to-top" title="Back to top" type="button">
                         ↑
                     </button>
@@ -380,7 +376,7 @@
             </div>
 
         </footer>
-        <script defer="" src="app.js?v=1.1"></script>
+        <script defer="" src="app.js?v=1.28-ui"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 if (!window.matchMedia('(min-width: 901px)').matches) return;

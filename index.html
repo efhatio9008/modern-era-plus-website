@@ -10,7 +10,7 @@
         <meta content="Modern Era Plus Sdn. Bhd. - engineering, fabrication, industrial maintenance, offshore and onshore technical services in Miri, Sarawak." property="og:description"/>
         <meta content="assets/images/contact-us/01.webp" property="og:image"/>
         <link href="assets/images/mep-official-logo.jpg" rel="icon" type="image/jpeg"/>
-        <link href="style.css?v=1.28-gmail-colors" rel="stylesheet"/>
+        <link href="style.css?v=1.28-ui" rel="stylesheet"/>
         <title>
             Modern Era Plus Sdn. Bhd. | Offshore &amp; Onshore Engineering Solutions
         </title>
@@ -20,7 +20,7 @@
         </script>
         <script defer="" src="data/catalog.js">
         </script>
-        <script defer="" src="app.js?v=1.1">
+        <script defer="" src="app.js?v=1.28-ui">
         </script>
         <script src="viewer.js" type="module">
         </script>
@@ -28,6 +28,8 @@
     </head>
 
     <body data-page="home">
+
+        <a class="skip-link" href="#main">Skip to main content</a>
 
         <header class="site-header">
             <div class="topline">
@@ -57,14 +59,14 @@
                 </a>
 
                 <nav aria-label="Primary" class="desktop-nav">
-                    <a class="active" href="index.html">
+                    <a aria-current="page" class="active" href="index.html">
                         Home
                     </a>
                     <a class="" href="about.html">
                         Company
                     </a>
                     <div class="nav-drop" id="services-drop">
-                        <button aria-expanded="false" aria-haspopup="true" class="" id="services-toggle" type="button">
+                        <button aria-controls="services-mega" aria-expanded="false" class="" id="services-toggle" type="button">
                             Capabilities
                             <span>
                                 ⌄
@@ -165,7 +167,7 @@
             </div>
 
             <nav aria-label="Mobile navigation" class="mobile-panel" hidden="" id="mobile-panel">
-                <a href="index.html">
+                <a aria-current="page" href="index.html">
                     Home
                 </a>
                 <a href="about.html">
@@ -255,7 +257,7 @@
 
         </header>
 
-        <main id="main">
+        <main id="main" tabindex="-1">
 
             <section class="hero">
                 <div aria-hidden="true" class="hero-haze">
@@ -331,7 +333,7 @@
                                 <span class="viewer-code">
                                     INTERACTIVE / OFFSHORE PLATFORM
                                 </span>
-                                <span class="viewer-status" id="viewer-status">
+                                <span aria-live="polite" class="viewer-status" id="viewer-status">
                                     READY TO LOAD
                                 </span>
                             </div>
@@ -462,7 +464,7 @@
                     </div>
                     <div class="feature-grid">
                         <a class="feature-card reveal" href="service.html?service=structure-fabrication-insulation-work">
-                            <img alt="Structure fabrication work" loading="lazy" src="assets/images/structure-fabrication-insulation-work/01.webp"/>
+                            <img alt="Structure fabrication work" decoding="async" loading="lazy" src="assets/images/structure-fabrication-insulation-work/01.webp"/>
                             <div class="feature-body">
                                 <span>
                                     01 / ENGINEERING
@@ -476,7 +478,7 @@
                             </div>
                         </a>
                         <a class="feature-card reveal" href="service.html?service=design-engineering-services">
-                            <img alt="Engineering and facility design project" loading="lazy" src="assets/images/design-engineering-services/01.webp"/>
+                            <img alt="Engineering and facility design project" decoding="async" loading="lazy" src="assets/images/design-engineering-services/01.webp"/>
                             <div class="feature-body">
                                 <span>
                                     02 / FACILITIES
@@ -490,7 +492,7 @@
                             </div>
                         </a>
                         <a class="feature-card reveal" href="service.html?service=industrial-hygiene-services">
-                            <img alt="Industrial hygiene services" loading="lazy" src="assets/images/industrial-hygiene-services/01.webp"/>
+                            <img alt="Industrial hygiene services" decoding="async" loading="lazy" src="assets/images/industrial-hygiene-services/01.webp"/>
                             <div class="feature-body">
                                 <span>
                                     03 / TECHNICAL
@@ -516,6 +518,9 @@
                         <div class="frame-caption">
                             MIRI · SARAWAK · MALAYSIA
                         </div>
+                        <button aria-label="Pause automatic photo changes" aria-pressed="false" class="slide-toggle" id="company-slide-toggle" type="button">
+                            <span aria-hidden="true">Ⅱ</span>
+                        </button>
                     </div>
                     <div class="reveal">
                         <div class="eyebrow">
@@ -595,8 +600,8 @@
                         </p>
                     </div>
                     <div class="staggered reveal">
-                        <img alt="Steel fabrication equipment" loading="lazy" src="assets/images/steel-fabrication/01.webp"/>
-                        <img alt="Site facility installation" loading="lazy" src="assets/images/laboratory-construction/01.webp"/>
+                        <img alt="Steel fabrication equipment" decoding="async" loading="lazy" src="assets/images/steel-fabrication/01.webp"/>
+                        <img alt="Site facility installation" decoding="async" loading="lazy" src="assets/images/laboratory-construction/01.webp"/>
                     </div>
                     <div class="btn-row" style="margin-top:29px">
                         <a class="btn btn-outline" href="services.html">
@@ -613,7 +618,7 @@
             <section class="section section-alt">
                 <div class="container tech-teaser">
                     <a aria-label="View Pipe-in-Liner technology video" class="video-visual reveal" href="technology.html">
-                        <img alt="Pipe rehabilitation workers on site" loading="lazy" src="assets/images/photo-pipe-in-liner/01.webp"/>
+                        <img alt="Pipe rehabilitation workers on site" decoding="async" loading="lazy" src="assets/images/photo-pipe-in-liner/01.webp"/>
                         <span class="video-play">
                             <span>
                                 ▶
@@ -671,7 +676,7 @@
                     </div>
                     <div class="project-grid">
                         <a class="project-panel reveal" href="projects.html">
-                            <img alt="Before and after project experience montage" loading="lazy" src="assets/images/project-experience/01.webp" style="object-fit:contain;background:#e6edf0"/>
+                            <img alt="Before and after project experience montage" decoding="async" loading="lazy" src="assets/images/project-experience/01.webp" style="object-fit:contain;background:#e6edf0"/>
                             <div class="body">
                                 <h3>
                                     Before / After
@@ -682,7 +687,7 @@
                             </div>
                         </a>
                         <a class="project-panel reveal" href="service.html?service=offshore-onshore-drain-and-sewage-line">
-                            <img alt="Drain and sewage maintenance work" loading="lazy" src="assets/images/offshore-onshore-drain-and-sewage-line/02.webp"/>
+                            <img alt="Drain and sewage maintenance work" decoding="async" loading="lazy" src="assets/images/offshore-onshore-drain-and-sewage-line/02.webp"/>
                             <div class="body">
                                 <h3>
                                     Maintenance in action
@@ -802,13 +807,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <span>
-                        ©
-                        <span id="year">
-                            2026
-                        </span>
-                        Modern Era Plus Sdn. Bhd. All Rights Reserved.
-                    </span>
+                    <span>© 2026 Modern Era Plus, SanJia. All Rights Reserved.</span>
                     <button aria-label="Back to top" class="to-top" id="to-top" title="Back to top" type="button">
                         ↑
                     </button>
@@ -823,11 +822,11 @@
             <button aria-label="Previous image" class="prev">
                 ‹
             </button>
-            <img alt="Expanded project image" id="lightbox-image" src=""/>
+            <img alt="Expanded project image" id="lightbox-image"/>
             <button aria-label="Next image" class="next">
                 ›
             </button>
-            <div class="lightbox-meta" id="lightbox-meta">
+            <div aria-live="polite" class="lightbox-meta" id="lightbox-meta">
             </div>
         </div>
 

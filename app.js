@@ -5,21 +5,30 @@
     const $$ = sel => [...document.querySelectorAll(sel)];
     const data = window.MEP_DATA || { assets: {}, services: [] };
     const mobileBtn = $('#mobile-toggle'), mobilePanel = $('#mobile-panel');
+    const mobileLayout = window.matchMedia('(max-width:900px)');
+    function setMobile(open) {
+        if (!mobileBtn || !mobilePanel)
+            return;
+        mobilePanel.hidden = !open;
+        mobileBtn.setAttribute('aria-expanded', String(open));
+        mobileBtn.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        mobileBtn.textContent = open ? '×' : '☰';
+    }
     if (mobileBtn && mobilePanel) {
-        mobileBtn.addEventListener('click', () => { const open = mobilePanel.hidden; mobilePanel.hidden = !open; mobileBtn.setAttribute('aria-expanded', String(open)); mobileBtn.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); mobileBtn.textContent = open ? '×' : '☰'; });
-        mobilePanel.addEventListener('click', e => { if (e.target.closest('a')) {
-            mobilePanel.hidden = true;
-            mobileBtn.setAttribute('aria-expanded', 'false');
-            mobileBtn.textContent = '☰';
-        } });
-        document.addEventListener('pointerdown', e => {
-            if (!mobilePanel.hidden && !mobilePanel.contains(e.target) && !mobileBtn.contains(e.target)) {
-                mobilePanel.hidden = true;
-                mobileBtn.setAttribute('aria-expanded', 'false');
-                mobileBtn.setAttribute('aria-label', 'Open navigation');
-                mobileBtn.textContent = '☰';
-            }
+        mobileBtn.addEventListener('click', () => setMobile(mobilePanel.hidden));
+        mobilePanel.addEventListener('click', e => {
+            if (e.target.closest('a'))
+                setMobile(false);
         });
+        document.addEventListener('pointerdown', e => {
+            if (!mobilePanel.hidden && !mobilePanel.contains(e.target) && !mobileBtn.contains(e.target))
+                setMobile(false);
+        });
+        document.addEventListener('focusin', e => {
+            if (!mobilePanel.hidden && !mobilePanel.contains(e.target) && e.target !== mobileBtn)
+                setMobile(false);
+        });
+        mobileLayout.addEventListener('change', () => setMobile(false));
     }
     // V1.2.3: Let the page scroll normally when a desktop mouse is over the
     // 3D canvas. OrbitControls otherwise consumes wheel events for zooming,
@@ -39,30 +48,64 @@
         }
     }
     const drop = $('#services-drop'), dropBtn = $('#services-toggle');
-    if (drop && dropBtn) {
-        dropBtn.addEventListener('click', () => { const open = !drop.classList.contains('open'); drop.classList.toggle('open', open); dropBtn.setAttribute('aria-expanded', String(open)); });
-        document.addEventListener('pointerdown', e => { if (!drop.contains(e.target)) {
-            drop.classList.remove('open');
-            dropBtn.setAttribute('aria-expanded', 'false');
-        } });
+    let dropPinned = false;
+    function setDrop(open) {
+        drop.classList.toggle('open', open);
+        dropBtn.setAttribute('aria-expanded', String(open));
+        if (!open)
+            dropPinned = false;
     }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') {
+    if (drop && dropBtn) {
+        dropBtn.addEventListener('click', () => {
+            dropPinned = !dropPinned;
+            setDrop(dropPinned);
+        });
+        drop.addEventListener('pointerenter', e => {
+            if (e.pointerType === 'mouse')
+                setDrop(true);
+        });
+        drop.addEventListener('pointerleave', e => {
+            if (e.pointerType === 'mouse' && !dropPinned && !drop.contains(document.activeElement))
+                setDrop(false);
+        });
+        drop.addEventListener('focusout', e => {
+            if (!drop.contains(e.relatedTarget))
+                setDrop(false);
+        });
+        document.addEventListener('pointerdown', e => {
+            if (!drop.contains(e.target))
+                setDrop(false);
+        });
+        mobileLayout.addEventListener('change', () => setDrop(false));
+    }
+    document.addEventListener('keydown', e => {
+        if (e.key !== 'Escape')
+            return;
+        if (modal && !modal.hidden) {
+            closeLightbox();
+            return;
+        }
         if (mobilePanel && !mobilePanel.hidden) {
-            mobilePanel.hidden = true;
-            mobileBtn?.setAttribute('aria-expanded', 'false');
-            if (mobileBtn)
-                mobileBtn.textContent = '☰';
+            setMobile(false);
+            mobileBtn.focus();
         }
-        if (drop) {
-            drop.classList.remove('open');
-            dropBtn?.setAttribute('aria-expanded', 'false');
+        if (drop?.classList.contains('open')) {
+            const returnFocus = drop.contains(document.activeElement);
+            setDrop(false);
+            if (returnFocus)
+                dropBtn.focus();
         }
-        closeLightbox();
-    } });
-    const year = $('#year');
-    if (year)
-        year.textContent = "2026";
-    $('#to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }));
+    });
+    const slideToggle = $('#company-slide-toggle');
+    slideToggle?.addEventListener('click', () => {
+        const paused = slideToggle.closest('.company-slideshow').classList.toggle('is-paused');
+        slideToggle.setAttribute('aria-pressed', String(paused));
+        slideToggle.firstElementChild.textContent = paused ? '▶' : 'Ⅱ';
+    });
+    $('#to-top')?.addEventListener('click', () => {
+        $('.site-header .brand')?.focus({ preventScroll: true });
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    });
     if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const io = new IntersectionObserver(entries => { for (const entry of entries) {
             if (entry.isIntersecting) {
@@ -88,6 +131,8 @@
             btn.classList.add('contain');
         const im = document.createElement('img');
         im.src = item.url;
+        im.width = item.width;
+        im.height = item.height;
         im.alt = title + ' — source photograph ' + (index + 1);
         im.loading = 'lazy';
         im.decoding = 'async';
@@ -117,6 +162,8 @@
                 a.setAttribute('aria-label', 'View ' + s.name);
                 const im = document.createElement('img');
                 im.src = s.images[0].url;
+                im.width = s.images[0].width;
+                im.height = s.images[0].height;
                 im.alt = s.name + ' photo';
                 im.loading = 'lazy';
                 im.decoding = 'async';
@@ -164,6 +211,10 @@
         const slug = new URLSearchParams(window.location.search).get('service');
         const service = data.services.find(s => s.slug === slug) || data.services[0];
         if (service) {
+            $$('header nav a').forEach(link => {
+                if (new URL(link.href).searchParams.get('service') === service.slug)
+                    link.setAttribute('aria-current', 'page');
+            });
             document.title = service.name + ' | Modern Era Plus Sdn. Bhd.';
             const txt = (id, value) => { const el = document.getElementById(id); if (el)
                 el.textContent = value; };
@@ -209,20 +260,25 @@
             return; const diff = (e.changedTouches[0]?.clientX ?? touchStart) - touchStart; if (Math.abs(diff) > 55)
             showPhoto(position + (diff < 0 ? 1 : -1)); touchStart = null; }, { passive: true });
     }
-    document.addEventListener('keydown', e => { if (!modal || modal.hidden)
-        return; if (e.key === 'ArrowRight')
-        showPhoto(position + 1); if (e.key === 'ArrowLeft')
-        showPhoto(position - 1); if (e.key === 'Tab') {
-        const focusables = [...modal.querySelectorAll('button')];
-        const first = focusables[0], last = focusables[focusables.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
+    document.addEventListener('keydown', e => {
+        if (!modal || modal.hidden)
+            return;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
             e.preventDefault();
-            last.focus();
+            showPhoto(position + (e.key === 'ArrowRight' ? 1 : -1));
         }
-        else if (!e.shiftKey && document.activeElement === last) {
-            e.preventDefault();
-            first.focus();
+        if (e.key === 'Tab') {
+            const focusables = [...modal.querySelectorAll('button')];
+            const first = focusables[0], last = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            }
+            else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         }
-    } });
+    });
 })();
 

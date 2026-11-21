@@ -10,18 +10,20 @@
         <meta content="Modern Era Plus Sdn. Bhd., based in Miri, Sarawak, Malaysia. Engineering, fabrication, industrial services and project experience." property="og:description"/>
         <meta content="assets/images/contact-us/01.webp" property="og:image"/>
         <link href="assets/images/mep-official-logo.jpg" rel="icon" type="image/jpeg"/>
-        <link href="style.css?v=1.28-gmail-colors" rel="stylesheet"/>
+        <link href="style.css?v=1.28-ui" rel="stylesheet"/>
         <title>
             HSE &amp; Quality | Modern Era Plus Sdn. Bhd.
         </title>
         <script defer="" src="data/catalog.js">
         </script>
-        <script defer="" src="app.js?v=1.1">
+        <script defer="" src="app.js?v=1.28-ui">
         </script>
 
     </head>
 
     <body data-page="hse">
+
+        <a class="skip-link" href="#main">Skip to main content</a>
 
         <header class="site-header">
             <div class="topline">
@@ -58,7 +60,7 @@
                         Company
                     </a>
                     <div class="nav-drop" id="services-drop">
-                        <button aria-expanded="false" aria-haspopup="true" class="" id="services-toggle" type="button">
+                        <button aria-controls="services-mega" aria-expanded="false" class="" id="services-toggle" type="button">
                             Capabilities
                             <span>
                                 ⌄
@@ -142,7 +144,7 @@
                     <a class="" href="technology.html">
                         ASOE Technology
                     </a>
-                    <a class="active" href="hse.html">
+                    <a aria-current="page" class="active" href="hse.html">
                         HSE &amp; Quality
                     </a>
                     <a class="" href="download.html">
@@ -235,7 +237,7 @@
                 <a href="technology.html">
                     ASOE Technology
                 </a>
-                <a href="hse.html">
+                <a aria-current="page" href="hse.html">
                     HSE &amp; Quality
                 </a>
                                 <a href="download.html">
@@ -249,7 +251,7 @@
 
         </header>
 
-        <main id="main">
+        <main id="main" tabindex="-1">
 
             <section class="page-hero">
                 <div class="container">
@@ -301,7 +303,7 @@
                         </div>
                     </div>
                     <div class="split-visual reveal">
-                        <img alt="Industrial workplace safety helmet and protection equipment" loading="lazy" src="assets/images/home-photo/01.webp" style="object-fit:contain;background:#edf2f3"/>
+                        <img alt="Industrial workplace safety helmet and protection equipment" decoding="async" loading="lazy" src="assets/images/home-photo/01.webp" style="object-fit:contain;background:#edf2f3"/>
                         <div class="frame-caption">
                             SAFETY · QUALITY · RESPONSIBILITY
                         </div>
@@ -389,7 +391,7 @@
                             must not be treated as evidence of current certification.
                         </strong>
                         Updated credentials should be confirmed by the company before public deployment.
-                        <p style="margin:12px 0 0;color:#e7d2ae">
+                        <p style="margin:12px 0 0">
                             <a href="assets/documents/agm-historical-certificate.pdf" rel="noopener" target="_blank">
                                 Open the archived AGM PDF ↗
                             </a>
@@ -499,13 +501,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <span>
-                        ©
-                        <span id="year">
-                            2026
-                        </span>
-                        Modern Era Plus Sdn. Bhd. All Rights Reserved.
-                    </span>
+                    <span>© 2026 Modern Era Plus, SanJia. All Rights Reserved.</span>
                     <button aria-label="Back to top" class="to-top" id="to-top" title="Back to top" type="button">
                         ↑
                     </button>
@@ -520,11 +516,11 @@
             <button aria-label="Previous image" class="prev">
                 ‹
             </button>
-            <img alt="Expanded project image" id="lightbox-image" src=""/>
+            <img alt="Expanded project image" id="lightbox-image"/>
             <button aria-label="Next image" class="next">
                 ›
             </button>
-            <div class="lightbox-meta" id="lightbox-meta">
+            <div aria-live="polite" class="lightbox-meta" id="lightbox-meta">
             </div>
         </div>
 

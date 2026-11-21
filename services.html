@@ -10,18 +10,20 @@
         <meta content="Modern Era Plus Sdn. Bhd., based in Miri, Sarawak, Malaysia. Engineering, fabrication, industrial services and project experience." property="og:description"/>
         <meta content="assets/images/contact-us/01.webp" property="og:image"/>
         <link href="assets/images/mep-official-logo.jpg" rel="icon" type="image/jpeg"/>
-        <link href="style.css?v=1.28-gmail-colors" rel="stylesheet"/>
+        <link href="style.css?v=1.28-ui" rel="stylesheet"/>
         <title>
             Capabilities | Modern Era Plus Sdn. Bhd.
         </title>
         <script defer="" src="data/catalog.js">
         </script>
-        <script defer="" src="app.js?v=1.1">
+        <script defer="" src="app.js?v=1.28-ui">
         </script>
 
     </head>
 
     <body data-page="services">
+
+        <a class="skip-link" href="#main">Skip to main content</a>
 
         <header class="site-header">
             <div class="topline">
@@ -58,7 +60,7 @@
                         Company
                     </a>
                     <div class="nav-drop" id="services-drop">
-                        <button aria-expanded="false" aria-haspopup="true" class="active" id="services-toggle" type="button">
+                        <button aria-controls="services-mega" aria-expanded="false" class="active" id="services-toggle" type="button">
                             Capabilities
                             <span>
                                 ⌄
@@ -130,7 +132,7 @@
                                 <a href="service.html?service=supplies-consumable-tools-ppe-safety-equipment">
                                     Supplies &amp; PPE
                                 </a>
-                                <a class="mega-all" href="services.html">
+                                <a aria-current="page" class="mega-all" href="services.html">
                                     Explore all capabilities →
                                 </a>
                             </div>
@@ -173,7 +175,7 @@
                         </span>
                     </summary>
                     <div class="mobile-subnav">
-                        <a href="services.html">
+                        <a aria-current="page" href="services.html">
                             All Services
                         </a>
                         <a href="service.html?service=design-engineering-services">
@@ -249,7 +251,7 @@
 
         </header>
 
-        <main id="main">
+        <main id="main" tabindex="-1">
 
             <section class="page-hero">
                 <div class="container">
@@ -307,7 +309,7 @@
                             Maintenance &amp; Technical
                         </button>
                     </div>
-                    <p aria-live="polite" id="service-count" style="font-size:12px;margin-bottom:24px">
+                    <p aria-live="polite" id="service-count" style="margin-bottom:24px">
                     </p>
                     <div class="service-grid" id="service-grid">
                     </div>
@@ -420,13 +422,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <span>
-                        ©
-                        <span id="year">
-                            2026
-                        </span>
-                        Modern Era Plus Sdn. Bhd. All Rights Reserved.
-                    </span>
+                    <span>© 2026 Modern Era Plus, SanJia. All Rights Reserved.</span>
                     <button aria-label="Back to top" class="to-top" id="to-top" title="Back to top" type="button">
                         ↑
                     </button>
@@ -441,11 +437,11 @@
             <button aria-label="Previous image" class="prev">
                 ‹
             </button>
-            <img alt="Expanded project image" id="lightbox-image" src=""/>
+            <img alt="Expanded project image" id="lightbox-image"/>
             <button aria-label="Next image" class="next">
                 ›
             </button>
-            <div class="lightbox-meta" id="lightbox-meta">
+            <div aria-live="polite" class="lightbox-meta" id="lightbox-meta">
             </div>
         </div>
 

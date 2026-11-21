@@ -10,18 +10,20 @@
         <meta content="Modern Era Plus Sdn. Bhd., based in Miri, Sarawak, Malaysia. Engineering, fabrication, industrial services and project experience." property="og:description"/>
         <meta content="assets/images/contact-us/01.webp" property="og:image"/>
         <link href="assets/images/mep-official-logo.jpg" rel="icon" type="image/jpeg"/>
-        <link href="style.css?v=1.28-gmail-colors" rel="stylesheet"/>
+        <link href="style.css?v=1.28-ui" rel="stylesheet"/>
         <title>
             ASOE Pipe-in-Liner Technology | Modern Era Plus Sdn. Bhd.
         </title>
         <script defer="" src="data/catalog.js">
         </script>
-        <script defer="" src="app.js?v=1.1">
+        <script defer="" src="app.js?v=1.28-ui">
         </script>
 
     </head>
 
     <body data-page="technology">
+
+        <a class="skip-link" href="#main">Skip to main content</a>
 
         <header class="site-header">
             <div class="topline">
@@ -58,7 +60,7 @@
                         Company
                     </a>
                     <div class="nav-drop" id="services-drop">
-                        <button aria-expanded="false" aria-haspopup="true" class="" id="services-toggle" type="button">
+                        <button aria-controls="services-mega" aria-expanded="false" class="" id="services-toggle" type="button">
                             Capabilities
                             <span>
                                 ⌄
@@ -139,7 +141,7 @@
                     <a class="" href="projects.html">
                         Projects
                     </a>
-                    <a class="active" href="technology.html">
+                    <a aria-current="page" class="active" href="technology.html">
                         ASOE Technology
                     </a>
                     <a class="" href="hse.html">
@@ -232,7 +234,7 @@
                 <a href="projects.html">
                     Projects
                 </a>
-                <a href="technology.html">
+                <a aria-current="page" href="technology.html">
                     ASOE Technology
                 </a>
                 <a href="hse.html">
@@ -249,7 +251,7 @@
 
         </header>
 
-        <main id="main">
+        <main id="main" tabindex="-1">
 
             <section class="page-hero">
                 <div class="container">
@@ -306,7 +308,7 @@
                         </div>
                     </div>
                     <div class="split-visual reveal">
-                        <img alt="Technicians installing pipe rehabilitation equipment" loading="lazy" src="assets/images/photo-pipe-in-liner/01.webp"/>
+                        <img alt="Technicians installing pipe rehabilitation equipment" decoding="async" loading="lazy" src="assets/images/photo-pipe-in-liner/01.webp"/>
                         <div class="frame-caption">
                             PIPE-IN-LINER / FIELD DEMONSTRATION
                         </div>
@@ -498,13 +500,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <span>
-                        ©
-                        <span id="year">
-                            2026
-                        </span>
-                        Modern Era Plus Sdn. Bhd. All Rights Reserved.
-                    </span>
+                    <span>© 2026 Modern Era Plus, SanJia. All Rights Reserved.</span>
                     <button aria-label="Back to top" class="to-top" id="to-top" title="Back to top" type="button">
                         ↑
                     </button>
@@ -519,11 +515,11 @@
             <button aria-label="Previous image" class="prev">
                 ‹
             </button>
-            <img alt="Expanded project image" id="lightbox-image" src=""/>
+            <img alt="Expanded project image" id="lightbox-image"/>
             <button aria-label="Next image" class="next">
                 ›
             </button>
-            <div class="lightbox-meta" id="lightbox-meta">
+            <div aria-live="polite" class="lightbox-meta" id="lightbox-meta">
             </div>
         </div>
 

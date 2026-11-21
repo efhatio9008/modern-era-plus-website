@@ -10,18 +10,20 @@
         <meta content="Modern Era Plus Sdn. Bhd., based in Miri, Sarawak, Malaysia. Engineering, fabrication, industrial services and project experience." property="og:description"/>
         <meta content="assets/images/contact-us/01.webp" property="og:image"/>
         <link href="assets/images/mep-official-logo.jpg" rel="icon" type="image/jpeg"/>
-        <link href="style.css?v=1.28-gmail-colors" rel="stylesheet"/>
+        <link href="style.css?v=1.28-ui" rel="stylesheet"/>
         <title>
             Contact Us | Modern Era Plus Sdn. Bhd.
         </title>
         <script defer="" src="data/catalog.js">
         </script>
-        <script defer="" src="app.js?v=1.1">
+        <script defer="" src="app.js?v=1.28-ui">
         </script>
 
     </head>
 
     <body data-page="contact">
+
+        <a class="skip-link" href="#main">Skip to main content</a>
 
         <header class="site-header">
             <div class="topline">
@@ -58,7 +60,7 @@
                         Company
                     </a>
                     <div class="nav-drop" id="services-drop">
-                        <button aria-expanded="false" aria-haspopup="true" class="" id="services-toggle" type="button">
+                        <button aria-controls="services-mega" aria-expanded="false" class="" id="services-toggle" type="button">
                             Capabilities
                             <span>
                                 ⌄
@@ -148,7 +150,7 @@
                     <a class="" href="download.html">
                         Downloads
                     </a>
-                    <a class="active contact-nav" href="contact.html">
+                    <a aria-current="page" class="active contact-nav" href="contact.html">
                         Contact
                     </a>
 
@@ -241,7 +243,7 @@
                                 <a href="download.html">
                     Downloads
                 </a>
-                <a href="contact.html">
+                <a aria-current="page" href="contact.html">
                     Contact
                 </a>
 
@@ -249,7 +251,7 @@
 
         </header>
 
-        <main id="main">
+        <main id="main" tabindex="-1">
 
             <section class="page-hero">
                 <div class="container">
@@ -373,7 +375,7 @@
                         </a>
                     </div>
                     <div class="image-figure">
-                        <img alt="Legacy company contact and expandable house information" loading="lazy" src="assets/images/contact-us/02.webp" style="width:100%;object-fit:contain;background:#f7f9fa"/>
+                        <img alt="Legacy company contact and expandable house information" decoding="async" loading="lazy" src="assets/images/contact-us/02.webp" style="width:100%;object-fit:contain;background:#f7f9fa"/>
                     </div>
                 </div>
 
@@ -460,13 +462,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <span>
-                        ©
-                        <span id="year">
-                            2026
-                        </span>
-                        Modern Era Plus Sdn. Bhd. All Rights Reserved.
-                    </span>
+                    <span>© 2026 Modern Era Plus, SanJia. All Rights Reserved.</span>
                     <button aria-label="Back to top" class="to-top" id="to-top" title="Back to top" type="button">
                         ↑
                     </button>
@@ -481,11 +477,11 @@
             <button aria-label="Previous image" class="prev">
                 ‹
             </button>
-            <img alt="Expanded project image" id="lightbox-image" src=""/>
+            <img alt="Expanded project image" id="lightbox-image"/>
             <button aria-label="Next image" class="next">
                 ›
             </button>
-            <div class="lightbox-meta" id="lightbox-meta">
+            <div aria-live="polite" class="lightbox-meta" id="lightbox-meta">
             </div>
         </div>
 
