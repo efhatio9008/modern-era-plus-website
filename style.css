@@ -4846,3 +4846,54 @@ html:not(.has-js) .company-slideshow>.company-slide-onshore {
   font-size:16px;
   line-height:1.6
 }
+
+
+/* V1.28 | Follow-up: aligned copy, wider desktop demo and compact mobile archive.
+   Only presentation styles are changed; existing JS, links and content remain intact. */
+
+/* Paired introductory lines and descriptive paragraphs use the same readable
+   text size. Do not enlarge decorative uppercase eyebrow labels or main headings. */
+main .section .lead,
+main .section-narrow .lead,
+main .section-header > p,
+main .service-hero-grid #service-summary,
+main .service-hero-grid #service-description {
+  font-size:16px;
+  line-height:1.6
+}
+
+@media (min-width:901px) {
+  main .section .lead,
+  main .section-narrow .lead,
+  main .section-header > p,
+  main .service-hero-grid #service-summary,
+  main .service-hero-grid #service-description {
+    font-size:17px;
+    line-height:1.63
+  }
+
+  /* ASOE Technology: wider presentation on desktop only. */
+  .video-card {
+    width:min(100%,48rem)
+  }
+}
+
+@media (max-width:600px) {
+  /* Downloads: slightly smaller installation notice on phones only. */
+  main .section p.download-note {
+    font-size:14px;
+    line-height:1.55
+  }
+
+  /* Three thumbnails per row, rather than two, across photo archives. */
+  .gallery-grid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px
+  }
+  .gallery-tile::after {
+    right:4px;
+    bottom:4px;
+    font-size:12px;
+    padding:2px 5px
+  }
+}
