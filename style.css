@@ -5023,3 +5023,134 @@ main .hero-copy p {
   text-align-last:start;
   hyphens:auto
 }
+
+/* Modern Era Plus V1.29 | Desktop-only compact finishing pass.
+   Keep the home hero, Engineering Facility strip, 3D viewer, all interaction
+   styles and every rule for 900px-and-below exactly as supplied. */
+@media (min-width: 901px) {
+  /* Home: compact content sections below the protected top showcase. */
+  body[data-page="home"] .section:has(.feature-grid),
+  body[data-page="home"] .section:has(.split),
+  body[data-page="home"] .section:has(.staggered),
+  body[data-page="home"] .section:has(.tech-teaser) {
+    padding-block:clamp(24px,2.6vw,36px)
+  }
+  body[data-page="home"] .section:has(.feature-grid) h2,
+  body[data-page="home"] .section:has(.split) h2,
+  body[data-page="home"] .section:has(.staggered) h2,
+  body[data-page="home"] .section:has(.tech-teaser) h2 {
+    font-size:clamp(23px,2.1vw,30px)
+  }
+  body[data-page="home"] .section:has(.feature-grid) .section-header,
+  body[data-page="home"] .section:has(.split) .section-header,
+  body[data-page="home"] .section:has(.staggered) .section-header,
+  body[data-page="home"] .section:has(.tech-teaser) .section-header {
+    margin-bottom:14px
+  }
+
+  /* Company/inner-page figures: shrink the frame and its image together.
+     Contain keeps full photographs and safety illustrations in proportion. */
+  main .section:has(.image-figure),
+  main .section:has(.large-image) {
+    padding-block:clamp(22px,2.55vw,36px)
+  }
+  .image-figure {
+    width:min(88%,28rem)
+  }
+  .image-figure img {
+    width:100%;
+    height:auto;
+    max-height:clamp(190px,20vw,265px);
+    object-fit:contain
+  }
+  .image-figure figcaption {
+    margin-top:8px
+  }
+  .large-image {
+    width:auto;
+    max-width:min(88%,29rem);
+    max-height:270px;
+    height:auto;
+    object-fit:contain;
+    margin-inline:auto
+  }
+
+  /* Match only pages that actually contain a service detail hero. */
+  body:has(.service-hero-grid) .page-hero {
+    padding-block:clamp(20px,2.5vw,34px)
+  }
+  body:has(.service-hero-grid) .page-hero h1 {
+    font-size:clamp(28px,2.9vw,42px)
+  }
+
+  /* Capabilities detail pages: smaller main photo frames, no stretching. */
+  main .section:has(.service-hero-grid),
+  main .section:has(.gallery-grid) {
+    padding-block:clamp(22px,2.4vw,34px)
+  }
+  main .section:has(.service-hero-grid) h2,
+  main .section:has(.gallery-grid) h2 {
+    font-size:clamp(22px,2.1vw,29px)
+  }
+  .service-hero-grid {
+    grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);
+    gap:clamp(16px,2vw,26px)
+  }
+  .service-hero-grid img {
+    width:auto;
+    height:auto;
+    max-width:min(100%,21rem);
+    max-height:clamp(165px,18vw,225px);
+    object-fit:contain;
+    margin-inline:auto
+  }
+  .gallery-grid {
+    width:min(92%,66rem);
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:clamp(8px,1vw,12px)
+  }
+  .gallery-tile {
+    aspect-ratio:16/10
+  }
+  .gallery-tile img {
+    object-fit:contain
+  }
+
+  /* All Capabilities: keep the current three-column catalogue and order. */
+  body[data-page="services"] #service-grid .service-card img {
+    aspect-ratio:2.4/1;
+    object-fit:contain;
+    margin-top:8px
+  }
+  body[data-page="services"] #service-grid .service-card .body {
+    padding:10px 13px
+  }
+
+  /* Other inner pages: moderate media and whitespace reductions. */
+  main .section:has(.project-grid),
+  main .section:has(.policy-grid) {
+    padding-block:clamp(24px,2.7vw,38px)
+  }
+  .project-panel img {
+    aspect-ratio:1.9/1;
+    object-fit:contain
+  }
+  body[data-page="downloads"] .download-intro {
+    padding-block:clamp(22px,2.5vw,34px)
+  }
+  .download-content {
+    padding-block:clamp(26px,2.7vw,38px)
+  }
+  .download-heading {
+    margin-bottom:14px
+  }
+  .download-card {
+    padding:clamp(15px,1.5vw,21px)
+  }
+  .download-card-top {
+    margin-bottom:12px
+  }
+  .download-support {
+    padding:clamp(16px,1.7vw,22px)
+  }
+}
