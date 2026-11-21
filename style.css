@@ -5154,3 +5154,15 @@ main .hero-copy p {
     padding:clamp(16px,1.7vw,22px)
   }
 }
+
+/* V1.29 | Contact page: match the lower factory photo to the upper photo card.
+   Desktop only. Keep the existing image height, cropping, and mobile layout. */
+@media (min-width:901px) {
+  body[data-page="contact"] .section-alt > .container.split {
+    grid-template-columns:1.15fr .85fr;
+    gap:12px
+  }
+  body[data-page="contact"] .section-alt .split > .image-figure {
+    width:min(100%,30rem)
+  }
+}
